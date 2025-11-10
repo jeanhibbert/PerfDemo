@@ -3,6 +3,7 @@ using BenchmarkDotNet.Order;
 
 namespace PerfDemo;
 
+[SimpleJob]
 [MemoryDiagnoser]
 [Orderer(SummaryOrderPolicy.FastestToSlowest)]
 [RankColumn]

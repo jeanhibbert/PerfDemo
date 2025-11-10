@@ -4,6 +4,7 @@ using System.Collections.Concurrent;
 
 namespace PerfDemo;
 
+[SimpleJob]
 [MemoryDiagnoser]
 [Orderer(SummaryOrderPolicy.FastestToSlowest)]
 [RankColumn]

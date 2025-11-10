@@ -5,6 +5,7 @@ using System.Collections.Immutable;
 
 namespace PerfDemo;
 
+[SimpleJob]
 [MemoryDiagnoser]
 [Orderer(SummaryOrderPolicy.FastestToSlowest)]
 [RankColumn]
