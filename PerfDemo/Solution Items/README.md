@@ -1,5 +1,13 @@
 ﻿Tips and tricks into optimising performance
 
+- sharplab.io
+- zlinq
+- benchmark dotnet
+- ilspy
+- visual studio profiler
+- stephen taub blog
+- otimizing dictionary usage
+
 Diagnosing Performance issues
 
 	- finding the hotpath using visual studio profiler
