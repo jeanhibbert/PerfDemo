@@ -1,4 +1,5 @@
 using BenchmarkDotNet.Running;
+using PerfDemo.LinqPerf;
 
 namespace PerfDemo;
 
@@ -16,7 +17,9 @@ public static class BenchmarkMenu
         Console.WriteLine("4. Span vs Array Benchmarks");
         Console.WriteLine("5. Frozen Collection Benchmarks");
         Console.WriteLine("6. Collection Types Benchmarks");
-        Console.WriteLine("7. Run All Benchmarks");
+        Console.WriteLine("7. Struct vs Class Benchmarks");
+        Console.WriteLine("8. Zlinq vs LINQ Benchmarks");
+        Console.WriteLine("9. Run All Benchmarks");
         Console.WriteLine("0. Exit");
         Console.WriteLine();
         Console.Write("Enter your choice (or press Enter to run all): ");
@@ -44,6 +47,12 @@ public static class BenchmarkMenu
                 BenchmarkRunner.Run<CollectionTypesBenchmarks>();
                 break;
             case "7":
+                BenchmarkRunner.Run<StructVsClassBenchmark>();
+                break;
+            case "8":
+                BenchmarkRunner.Run<ZlinqVsLinqBenchmarks>();
+                break;
+            case "9":
             case "":
                 Console.WriteLine("Running all benchmarks...");
                 RunAllBenchmarks();
@@ -66,5 +75,7 @@ public static class BenchmarkMenu
         BenchmarkRunner.Run<SpanVsArrayBenchmarks>();
         BenchmarkRunner.Run<FrozenCollectionBenchmarks>();
         BenchmarkRunner.Run<CollectionTypesBenchmarks>();
+        BenchmarkRunner.Run<StructVsClassBenchmark>();
+        BenchmarkRunner.Run<ZlinqVsLinqBenchmarks>();
     }
 }
