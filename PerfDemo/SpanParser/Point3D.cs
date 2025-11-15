@@ -22,6 +22,7 @@ public record struct Point3D(double X, double Y, double Z)
     {
         try
         {
+            
             ReadOnlySpan<char> chars = input;
             Span<double> coords = stackalloc double[] { 0.0, 0.0, 0.0 };
             Span<char> number = stackalloc char[chars.Length];
@@ -39,18 +40,15 @@ public record struct Point3D(double X, double Y, double Z)
                 if (c == ',' || c == ')')
                 {
                     coords[count++] = double.Parse(number);
-
                     pos = 0;
-
                     number.Fill(' ');
-
                     continue;
                 }
-
                 number[pos++] = c;
             }
-
+            
             return new Point3D(coords[0], coords[1], coords[2]);
+
         }
         catch (Exception e)
         {

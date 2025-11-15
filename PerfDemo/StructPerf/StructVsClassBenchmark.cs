@@ -9,7 +9,7 @@ public interface ISomeInterface
     int GetValue();
 }
 
-public struct MyStruct : ISomeInterface
+public struct MyMutatableStruct : ISomeInterface
 {
     public int X;
     public int GetValue() => X;
@@ -60,7 +60,7 @@ public class StructVsClassBenchmark
         int sum = 0;
         for (int i = 0; i < Iterations; i++)
         {
-            var s = new MyStruct { X = i };
+            var s = new MyMutatableStruct { X = i };
             sum += s.GetValue();
         }
         return sum;
@@ -112,7 +112,7 @@ public class StructVsClassBenchmark
         int sum = 0;
         for (int i = 0; i < Iterations; i++)
         {
-            var s = new MyStruct { X = i };
+            var s = new MyMutatableStruct { X = i };
             sum += ProcessStructByValue(s);
         }
         return sum;
@@ -130,7 +130,7 @@ public class StructVsClassBenchmark
         return sum;
     }
 
-    private int ProcessStructByValue(MyStruct s) => s.GetValue();
+    private int ProcessStructByValue(MyMutatableStruct s) => s.GetValue();
     private int ProcessClassByReference(MyClass c) => c.GetValue();
 
     // =============================================================================
@@ -143,7 +143,7 @@ public class StructVsClassBenchmark
         int sum = 0;
         for (int i = 0; i < Iterations; i++)
         {
-            var s = new MyStruct { X = i };
+            var s = new MyMutatableStruct { X = i };
             sum += ProcessStructByIn(in s);
         }
         return sum;
@@ -185,7 +185,7 @@ public class StructVsClassBenchmark
         return sum;
     }
 
-    private int ProcessStructByIn(in MyStruct s) => s.GetValue();
+    private int ProcessStructByIn(in MyMutatableStruct s) => s.GetValue();
     private int ProcessRefStructByIn(in MyRefStruct s) => s.GetValue();
     private int ProcessReadOnlyRefStructByIn(in MyReadOnlyStruct s) => s.GetValue();
     private int ProcessClassByIn(in MyClass c) => c.GetValue();
@@ -200,7 +200,7 @@ public class StructVsClassBenchmark
         int sum = 0;
         for (int i = 0; i < Iterations; i++)
         {
-            var s = new MyStruct { X = i };
+            var s = new MyMutatableStruct { X = i };
             s.Mutate(); // Direct mutation - no defensive copy
             sum += s.X;
         }
@@ -240,10 +240,10 @@ public class StructVsClassBenchmark
     [Benchmark]
     public int StructArray()
     {
-        var array = new MyStruct[100];
+        var array = new MyMutatableStruct[100];
         for (int i = 0; i < array.Length; i++)
         {
-            array[i] = new MyStruct { X = i };
+            array[i] = new MyMutatableStruct { X = i };
         }
 
         int sum = 0;
@@ -281,7 +281,7 @@ public class StructVsClassBenchmark
         int sum = 0;
         for (int i = 0; i < Iterations; i++)
         {
-            MyStruct s = new MyStruct { X = i };
+            MyMutatableStruct s = new MyMutatableStruct { X = i };
             ISomeInterface iface = s; // BOXING - heap allocation!
             sum += iface.GetValue();
         }
@@ -311,7 +311,7 @@ public class StructVsClassBenchmark
         int sum = 0;
         for (int i = 0; i < Iterations; i++)
         {
-            var s = new MyStruct { X = i };
+            var s = new MyMutatableStruct { X = i };
             s.Mutate();
             sum += ProcessStructByIn(in s);
             s.Mutate();
