@@ -2,6 +2,9 @@
 using PerfDemo;
 using PerfDemo.Examples;
 using PerfDemo.Generics.Boxing;
+using PerfDemo.Generics.CallpathElimination;
+using PerfDemo.Generics.CallpathFactory;
+using PerfDemo.Generics.GenericList;
 
 // Uncomment the line below to run benchmarks
 // BenchmarkMenu.Run();
@@ -11,4 +14,12 @@ using PerfDemo.Generics.Boxing;
 
 //BenchmarkRunner.Run<ParserBenchmarks>();
 
-BoxingRunner.Run();
+//BoxingRunner.Run();
+
+//ListRunner.Run();
+
+//GenericListRunner.Run();
+
+//CallpathRunner.Run();
+
+CallpathFactoryRunner.Run();

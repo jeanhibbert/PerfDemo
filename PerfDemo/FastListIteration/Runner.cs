@@ -3,7 +3,7 @@ using FastListIteration;
 
 public class ListRunner
 {
-    public void Run()
+    public static void Run()
     {
         BenchmarkRunner.Run<Benchmarks>();
     }
