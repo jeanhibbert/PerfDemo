@@ -1,5 +1,5 @@
 using BenchmarkDotNet.Running;
-using PerfDemo.LinqPerf;
+using PerfDemo.ZLinqBenchmark;
 
 namespace PerfDemo;
 
@@ -50,7 +50,7 @@ public static class BenchmarkMenu
                 BenchmarkRunner.Run<StructVsClassBenchmark>();
                 break;
             case "8":
-                BenchmarkRunner.Run<ZlinqVsLinqBenchmarks>();
+                BenchmarkRunner.Run<ZLinqBenchmarks>();
                 break;
             case "9":
             case "":
@@ -76,6 +76,6 @@ public static class BenchmarkMenu
         BenchmarkRunner.Run<FrozenCollectionBenchmarks>();
         BenchmarkRunner.Run<CollectionTypesBenchmarks>();
         BenchmarkRunner.Run<StructVsClassBenchmark>();
-        BenchmarkRunner.Run<ZlinqVsLinqBenchmarks>();
+        BenchmarkRunner.Run<ZLinqBenchmarks>();
     }
 }

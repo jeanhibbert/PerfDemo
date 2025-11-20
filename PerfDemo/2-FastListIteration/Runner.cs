@@ -5,6 +5,6 @@ public class ListRunner
 {
     public static void Run()
     {
-        BenchmarkRunner.Run<Benchmarks>();
+        BenchmarkRunner.Run<ListIterationBenchmarks>();
     }
 }

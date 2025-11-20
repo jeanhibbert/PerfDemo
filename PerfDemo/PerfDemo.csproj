@@ -13,4 +13,8 @@
     <PackageReference Include="ZLinq" Version="1.5.3" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="0-ResultPattern\" />
+  </ItemGroup>
+
 </Project>

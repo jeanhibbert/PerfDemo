@@ -3,7 +3,7 @@
 namespace InAndOutExamples;
 
 [MemoryDiagnoser(false)]
-public class Bencho
+public class InAndOutBenchmarks
 {
     private readonly ImmutableStruct _immutableStruct = new(6.9, 4.20);
     private readonly MutableStruct _mutableStruct = new(6.9, 4.20);

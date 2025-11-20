@@ -1,4 +1,5 @@
 ﻿using BenchmarkDotNet.Running;
+using FrozenCollections;
 using System.Collections.Frozen;
 using System.Collections.Immutable;
 using System.Runtime.CompilerServices;
@@ -6,11 +7,9 @@ using System.Runtime.CompilerServices;
 namespace PerfDemo.FrozenCollections;
 internal class Runner
 {
-    public void Run()
+    public static void Run()
     {
-        BenchmarkRunner.Run<DictionaryBenchmarks>();
-
-        return;
+        
 
         var dic = new Dictionary<string, int>
 {

@@ -13,9 +13,9 @@ internal class SharpLabScript
 
         /*
          
-        using System;
+               using System;
 
- MyClass myClass = new MyClass();
+ MyObject myClass = new MyObject();
  ObjectService.DoSomething(myClass);
  InterfaceService.DoSomething(myClass);
  GenericService.DoSomething(myClass);
@@ -40,12 +40,7 @@ public interface IMyInterface
     string BespokeToString();
 }
 
-public class MyClass : IMyInterface
-{
-    public string BespokeToString() => "Some value";
-}
-
-public struct MyStruct : IMyInterface
+public struct MyObject : IMyInterface //class
 {
     public string BespokeToString() => "Some value";
 }

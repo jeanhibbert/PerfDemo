@@ -7,7 +7,7 @@ internal class BoxingRunner
 {
     public static void Run()
     {
-        BenchmarkRunner.Run<BenchStructs>();
+        
     }
 }
 
@@ -34,11 +34,13 @@ public class BenchObjects
 }
 
 /*
- * | Method    | Mean      | Error     | StdDev    | Median    | Allocated |
+net9.0
+| Method    | Mean      | Error     | StdDev    | Median    | Allocated |
 |---------- |----------:|----------:|----------:|----------:|----------:|
-| Object    | 0.0382 ns | 0.0250 ns | 0.0234 ns | 0.0340 ns |         - |
-| Interface | 0.0008 ns | 0.0035 ns | 0.0029 ns | 0.0000 ns |         - |
-| Generic   | 0.0434 ns | 0.0186 ns | 0.0174 ns | 0.0397 ns |         - |
+| Object    | 0.0228 ns | 0.0228 ns | 0.0213 ns | 0.0156 ns |         - |
+| Interface | 0.1880 ns | 0.0198 ns | 0.0185 ns | 0.1861 ns |         - |
+| Generic   | 0.0419 ns | 0.0270 ns | 0.0252 ns | 0.0430 ns |         - | 
+
  */
 
 
@@ -65,9 +67,10 @@ public class BenchStructs
 }
 
 /*
- | Method    | Mean      | Error     | StdDev    | Median    | Gen0   | Allocated |
-|---------- |----------:|----------:|----------:|----------:|-------:|----------:|
-| Object    | 2.4998 ns | 0.1000 ns | 0.1777 ns | 2.5277 ns | 0.0019 |      24 B |
-| Interface | 2.2054 ns | 0.0540 ns | 0.0505 ns | 2.2074 ns | 0.0019 |      24 B |
-| Generic   | 0.0036 ns | 0.0082 ns | 0.0073 ns | 0.0000 ns |      - |         - |
+net9.0
+| Method    | Mean      | Error     | StdDev    | Median    | Allocated |
+|---------- |----------:|----------:|----------:|----------:|----------:|
+| Object    | 0.0269 ns | 0.0318 ns | 0.0298 ns | 0.0180 ns |         - |
+| Interface | 0.0006 ns | 0.0025 ns | 0.0023 ns | 0.0000 ns |         - |
+| Generic   | 0.0000 ns | 0.0000 ns | 0.0000 ns | 0.0000 ns |         - |
  */

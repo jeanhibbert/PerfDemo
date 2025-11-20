@@ -1,4 +1,10 @@
-﻿Tips and tricks into optimising performance
+﻿
+Tips and Tricks for C# code performance optimization
+
+
+
+
+Tips and tricks into optimising performance
 
 - sharplab.io
 - zlinq

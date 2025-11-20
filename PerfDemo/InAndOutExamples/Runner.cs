@@ -7,7 +7,7 @@ public class Runner
 {
     public void Run()
     {
-        BenchmarkRunner.Run<Bencho>();
+        BenchmarkRunner.Run<InAndOutBenchmarks>();
     }
 
 
