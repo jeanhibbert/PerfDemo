@@ -7,12 +7,12 @@ public interface IMyInterface
 
 public class MyClass : IMyInterface
 {
-    public string Value { get; internal set; }
+    public string Value { get; set; }
     public string BespokeToString() => Value;
 }
 
 public struct MyStruct : IMyInterface
 {
-    public string Value { get; internal set; }
+    public string Value { get; set; }
     public string BespokeToString() => Value;
 }

@@ -12,7 +12,7 @@ public class ListIterationBenchmarks
 
     [Params(100, 100_000, 1_000_000)] public int Size { get; set; }
 
-    private List<int> _items;
+    private static List<int>? _items;
 
     [GlobalSetup]
     public void Setup()

@@ -1,13 +1,6 @@
 ﻿using BenchmarkDotNet.Attributes;
 
 namespace PerfDemo.Generics.CallpathFactory;
-internal class CallpathFactoryRunner
-{
-    public static void Run()
-    {
-        var summary = BenchmarkDotNet.Running.BenchmarkRunner.Run<BenchEliminationFactory>();
-    }
-}
 
 [MemoryDiagnoser]
 public class BenchEliminationFactory
@@ -51,7 +44,7 @@ public class OptimizedFactory
 }
 
 
-internal static class RegularSwitchFactory
+public static class RegularSwitchFactory
 {
     public static int Create
         (ServiceType serviceType, int number )

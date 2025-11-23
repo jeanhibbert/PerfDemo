@@ -3,7 +3,7 @@ using BenchmarkDotNet.Running;
 
 namespace PerfDemo.Generics.Boxing;
 
-internal class BoxingRunner
+public class BoxingRunner
 {
     public static void Run()
     {

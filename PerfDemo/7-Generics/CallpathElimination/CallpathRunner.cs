@@ -2,13 +2,6 @@
 using BenchmarkDotNet.Running;
 
 namespace PerfDemo.Generics.CallpathElimination;
-internal class CallpathRunner
-{
-    public static void Run()
-    {
-        var summary = BenchmarkRunner.Run<BenchElimination>();
-    }
-}
 
 [MemoryDiagnoser]
 public class BenchElimination

@@ -1,16 +1,16 @@
 ﻿namespace PerfDemo.Generics.Boxing;
 
-internal class ObjectService
+public class ObjectService
 {
-    internal static string DoSomething(object something) => (something as IMyInterface).BespokeToString();
+    public static string DoSomething(object something) => (something as IMyInterface).BespokeToString();
 }
 
-internal class InterfaceService
+public class InterfaceService
 {
-    internal static string DoSomething(IMyInterface something) => something.BespokeToString();
+    public static string DoSomething(IMyInterface something) => something.BespokeToString();
 }
 
-internal class GenericService
+public class GenericService
 {
-    internal static string DoSomething<T>(T something) where T : IMyInterface => something.BespokeToString();
+    public static string DoSomething<T>(T something) where T : IMyInterface => something.BespokeToString();
 }

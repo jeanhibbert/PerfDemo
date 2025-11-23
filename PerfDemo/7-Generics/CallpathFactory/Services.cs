@@ -2,11 +2,11 @@
 
 public interface IService;
 
-internal class A : IService
+public class A : IService
 {
 }
 
-internal class B : IService
+public class B : IService
 {
 }
 

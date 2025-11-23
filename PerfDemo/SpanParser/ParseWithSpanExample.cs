@@ -1,6 +1,6 @@
 ﻿namespace PerfDemo.Examples;
 
-internal class ParseWithSpanExample
+public class ParseWithSpanExample
 {
 
     public void Run()

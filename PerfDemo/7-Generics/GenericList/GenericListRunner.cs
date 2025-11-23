@@ -3,7 +3,7 @@ using BenchmarkDotNet.Running;
 using System.Text.Json;
 
 namespace PerfDemo.Generics.GenericList;
-internal class GenericListRunner
+public class GenericListRunner
 {
     public static void Run()
     {

@@ -20,7 +20,7 @@ public readonly ref struct MyReadOnlyStruct
     //public void Mutate() => X++;
 }
 
-internal class SharpLabStructDemo
+public class SharpLabStructDemo
 {
     public void ProcessStructWithIn()
     {

@@ -5,7 +5,7 @@ using System.Collections.Immutable;
 using System.Runtime.CompilerServices;
 
 namespace PerfDemo.FrozenCollections;
-internal class Runner
+public class Runner
 {
     public static void Run()
     {
