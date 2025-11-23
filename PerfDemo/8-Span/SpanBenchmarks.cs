@@ -1,9 +1,4 @@
 ﻿using BenchmarkDotNet.Attributes;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PerfDemo._8_Span;
 
@@ -24,6 +19,17 @@ public class SubstringSpanBenchmarks
     [Benchmark(Baseline = true)]
     public int AsSpan() => int.Parse(_text.AsSpan(startIndex: 16));
 }
+
+/*
+ 
+| Method      | Mean     | Error     | Ratio | Allocated |
+|------------ |---------:|----------:|------:|----------:|
+| Substring   | 6.550 ns | 2.6370 ns |  1.56 |      32 B |
+| AsSpanSlice | 4.226 ns | 1.3996 ns |  1.01 |         - |
+| AsSpan      | 4.202 ns | 0.7137 ns |  1.00 |         - |
+
+ */
+
 
 [ShortRunJob]
 [MemoryDiagnoser(false)]
@@ -60,6 +66,18 @@ public class CreateStringSpanBenchmarks
     }
 }
 
+/*
+ 
+| Method       | Mean     | Error     | Ratio | Allocated |
+|------------- |---------:|----------:|------:|----------:|
+| String       | 20.72 ns |  4.658 ns |  1.35 |      96 B |
+| Span         | 20.55 ns | 10.857 ns |  1.34 |      48 B |
+| StringCreate | 15.37 ns |  2.045 ns |  1.00 |      48 B |
+ 
+ */
+
+
+
 [ShortRunJob]
 [MemoryDiagnoser(false), HideColumns("StdDev", "RatioSD", "Alloc Ratio"), ReturnValueValidator]
 public class SpanSplitBenchmarks
@@ -89,3 +107,12 @@ public class SpanSplitBenchmarks
         return t;
     }
 }
+
+/*
+ 
+| Method      | Mean     | Error     | Ratio | Allocated |
+|------------ |---------:|----------:|------:|----------:|
+| StringSplit | 46.19 ns | 16.916 ns |  1.94 |     144 B |
+| SpanSplit   | 23.79 ns |  5.470 ns |  1.00 |         - |
+ 
+ */

@@ -112,7 +112,7 @@ public class CsvParser
             ReadOnlySpan<byte> line = span[range];
 
             SalaryRecord record = CreateSalaryRecordFromSpan(line);
-
+            records.Add(record);
             //Console.WriteLine(ride.ToString());
         }
 
@@ -147,7 +147,7 @@ public class CsvParser
             ReadOnlySpan<byte> line = span[range];
 
             SalaryRecord record = CreateSalaryRecordFromSpan(line);
-
+            records.Add(record);
             //Console.WriteLine(ride.ToString());
         }
 

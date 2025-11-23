@@ -15,9 +15,6 @@ public class CsvParserBenchmarks
             //CsvParser.ParseCsv2();
             //CsvParser.ParseCsv3();
             CsvParser.ParseCsv4();
-
-            //UseSpanAndMemoryPool();
-            //UseSpanMemoryPoolAndStringPool();
         }
 
         GC.Collect();
@@ -34,9 +31,6 @@ public class CsvParserBenchmarks
         //CsvParser.ParseCsv3();
         CsvParser.ParseCsv4();
 
-
-        //UseSpanAndMemoryPool();
-        //UseSpanMemoryPoolAndStringPool();
 
         stopwatch.Stop();
         Console.WriteLine($"Duration:  {stopwatch.Elapsed.TotalSeconds} sec");

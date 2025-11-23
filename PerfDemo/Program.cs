@@ -37,12 +37,12 @@ using PerfDemo.ZLinqBenchmark;
 //BenchmarkRunner.Run<BenchEliminationFactory>();
 
 
-BenchmarkRunner.Run<SpanSplitBenchmarks>(); // 8
-BenchmarkRunner.Run<SubstringSpanBenchmarks>();
-BenchmarkRunner.Run<CreateStringSpanBenchmarks>();
+//BenchmarkRunner.Run<SpanSplitBenchmarks>(); // 8
+//BenchmarkRunner.Run<SubstringSpanBenchmarks>();
+//BenchmarkRunner.Run<CreateStringSpanBenchmarks>();
    
 
-//CsvParserBenchmarks.RunLightBenchmark(); // 9
+CsvParserBenchmarks.RunLightBenchmark(); // 9
 
 
 //////////////////////////////////////////////
