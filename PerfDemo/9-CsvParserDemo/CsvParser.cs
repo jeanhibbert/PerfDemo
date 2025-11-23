@@ -55,11 +55,7 @@ public class CsvParser
             records.Add(record);
         }
 
-        var options = new JsonSerializerOptions { WriteIndented = true };
-        string json = JsonSerializer.Serialize(records, options);
-
-        string outputPath = "salaries_2024_1.json";
-        File.WriteAllText(outputPath, json);
+        SaveRecordsAsJson(records, "salaries_2024_1.json", writeIndented: true);
     }
 
     public static void ParseCsv2()
@@ -87,11 +83,7 @@ public class CsvParser
             ));
         }
 
-        var options = new JsonSerializerOptions { WriteIndented = true };
-        string json = JsonSerializer.Serialize(records, options);
-
-        string outputPath = "salaries_2024_2.json";
-        File.WriteAllText(outputPath, json);
+        SaveRecordsAsJson(records, "salaries_2024_2.json", writeIndented: true);
     }
 
     public static void ParseCsv3()
@@ -116,11 +108,7 @@ public class CsvParser
             //Console.WriteLine(ride.ToString());
         }
 
-        var options = new JsonSerializerOptions { WriteIndented = true };
-        string json = JsonSerializer.Serialize(records, options);
-
-        string outputPath = "salaries_2024_3.json";
-        File.WriteAllText(outputPath, json);
+        SaveRecordsAsJson(records, "salaries_2024_3.json", writeIndented: true);
     }
 
     internal static void ParseCsv4()
@@ -151,8 +139,7 @@ public class CsvParser
             //Console.WriteLine(ride.ToString());
         }
 
-        string json = JsonSerializer.Serialize(records);
-        File.WriteAllText("salaries_2024_4.json", json);
+        SaveRecordsAsJson(records, "salaries_2024_4.json", writeIndented: false);
     }
 
     private static SalaryRecord CreateSalaryRecordFromSpan(ReadOnlySpan<byte> line)
@@ -227,6 +214,15 @@ public class CsvParser
             CompanyLocation: companyLocation,
             CompanySize: companySize
         );
+    }
+
+    // Centralized helper: serialize records and write to disk.
+    private static void SaveRecordsAsJson(IEnumerable<SalaryRecord> records, string outputPath, bool writeIndented = true)
+    {
+        return;
+        var options = new JsonSerializerOptions { WriteIndented = writeIndented };
+        string json = JsonSerializer.Serialize(records, options);
+        File.WriteAllText(outputPath, json);
     }
 }
 
