@@ -28,7 +28,6 @@ public class CsvParser
 {
     public static void ParseCsv1()
     {
-        //var file = Path.Combine(AppContext.BaseDirectory, "salaries-2024.csv");
         var csvContent = File.ReadAllText("salaries-2024.csv");
 
         var lines = csvContent.Split(new[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);

@@ -42,10 +42,10 @@ using PerfDemo.ZLinqBenchmark;
 //BenchmarkRunner.Run<CreateStringSpanBenchmarks>();
 
 //CsvParserBenchmarks.RunLightBenchmark(); // 9
-BenchmarkRunner.Run<CsvParserBenchmarks>();
+//BenchmarkRunner.Run<CsvParserBenchmarks>();
 
 //////////////////////////////////////////////
-//BenchmarkRunner.Run<ParserBenchmarks>();
+BenchmarkRunner.Run<ParserBenchmarks>();
 
 
 
