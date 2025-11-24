@@ -31,7 +31,7 @@ public class CsvParser
         var csvContent = File.ReadAllText("salaries-2024.csv");
 
         var lines = csvContent.Split(new[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);
-        var records = new List<SalaryRecord>();
+        //var records = new List<SalaryRecord>();
 
         for (int i = 1; i < lines.Length; i++)
         {
@@ -51,10 +51,10 @@ public class CsvParser
                 CompanySize: fields[10]
             );
 
-            records.Add(record);
+        
         }
 
-        SaveRecordsAsJson(records, "salaries_2024_1.json", writeIndented: true);
+        //SaveRecordsAsJson(records, "salaries_2024_1.json", writeIndented: true);
     }
 
     public static void ParseCsv2()
@@ -62,12 +62,11 @@ public class CsvParser
 
         IEnumerable<string> lines = File.ReadLines("salaries-2024.csv");
         
-        var records = new List<SalaryRecord>();
         foreach (var line in lines.Skip(1))
         { // Skip the Header
             string[] fields = line.Split(',');
 
-            records.Add(new SalaryRecord(
+            var record = new SalaryRecord(
                 WorkYear: int.Parse(fields[0]),
                 ExperienceLevel: fields[1],
                 EmploymentType: fields[2],
@@ -79,18 +78,16 @@ public class CsvParser
                 RemoteRatio: int.Parse(fields[8]),
                 CompanyLocation: fields[9],
                 CompanySize: fields[10]
-            ));
+            );
         }
 
-        SaveRecordsAsJson(records, "salaries_2024_2.json", writeIndented: true);
+        //SaveRecordsAsJson(records, "salaries_2024_2.json", writeIndented: true);
     }
 
     public static void ParseCsv3()
     {
         byte[] bytes = File.ReadAllBytes("salaries-2024.csv");
         ReadOnlySpan<byte> span = bytes;
-
-        var records = new List<SalaryRecord>();
 
         bool first = true;
         foreach (Range range in span.Split((byte)'\n'))
@@ -103,11 +100,9 @@ public class CsvParser
             ReadOnlySpan<byte> line = span[range];
 
             SalaryRecord record = CreateSalaryRecordFromSpan(line);
-            records.Add(record);
-            //Console.WriteLine(ride.ToString());
         }
 
-        SaveRecordsAsJson(records, "salaries_2024_3.json", writeIndented: true);
+        //SaveRecordsAsJson(records, "salaries_2024_3.json", writeIndented: true);
     }
 
     internal static void ParseCsv4()
@@ -121,8 +116,6 @@ public class CsvParser
         stream.ReadExactly(span);
         ReadOnlySpan<byte> roSpan = span; // Use it readonly so we can use Split()
 
-        var records = new List<SalaryRecord>();
-
         bool first = true;
         foreach (Range range in roSpan.Split((byte)'\n'))
         {
@@ -134,11 +127,9 @@ public class CsvParser
             ReadOnlySpan<byte> line = span[range];
 
             SalaryRecord record = CreateSalaryRecordFromSpan(line);
-            records.Add(record);
-            //Console.WriteLine(ride.ToString());
         }
 
-        SaveRecordsAsJson(records, "salaries_2024_4.json", writeIndented: false);
+        //SaveRecordsAsJson(records, "salaries_2024_4.json", writeIndented: false);
     }
 
     private static SalaryRecord CreateSalaryRecordFromSpan(ReadOnlySpan<byte> line)
@@ -215,10 +206,8 @@ public class CsvParser
         );
     }
 
-    // Centralized helper: serialize records and write to disk.
     private static void SaveRecordsAsJson(IEnumerable<SalaryRecord> records, string outputPath, bool writeIndented = true)
     {
-        return;
         var options = new JsonSerializerOptions { WriteIndented = writeIndented };
         string json = JsonSerializer.Serialize(records, options);
         File.WriteAllText(outputPath, json);

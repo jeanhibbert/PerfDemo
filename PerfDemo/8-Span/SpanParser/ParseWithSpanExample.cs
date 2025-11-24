@@ -3,7 +3,7 @@
 public class ParseWithSpanExample
 {
 
-    public void Run()
+    public static void Run()
     {
 
         int[] a1 = { 1, 2, 3, 4, 5, 6, 7, 8 };

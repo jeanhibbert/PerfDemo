@@ -31,11 +31,23 @@ public class CsvParserBenchmarks
         //CsvParser.ParseCsv3();
         CsvParser.ParseCsv4();
 
-
         stopwatch.Stop();
         Console.WriteLine($"Duration:  {stopwatch.Elapsed.TotalSeconds} sec");
         Console.WriteLine($"Allocated: {(GC.GetTotalAllocatedBytes() - memorySize) / 1024 / 1024} mb");
         Console.ReadKey();
+    }
+
+    public static void RunParserForever()
+    {
+        while (true)
+        {
+            CsvParser.ParseCsv1();
+            // if esc key is pressed, break
+            if (Console.KeyAvailable && Console.ReadKey(true).Key == ConsoleKey.Escape)
+            {
+                break;
+            }
+        }
     }
 
     [Benchmark]

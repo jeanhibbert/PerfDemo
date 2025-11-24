@@ -6,21 +6,21 @@ namespace CastingObjects;
 [MemoryDiagnoser(false)]
 public class CastingBenchmarks
 {
-    //[Benchmark]
+    [Benchmark]
     public Person HardCast()
     {
         Person nickHardCast = (Person)StaticObjects.Nick;
         return nickHardCast;
     }
 
-    //[Benchmark]
+    [Benchmark]
     public Person SafeCast()
     {
         Person? nick = StaticObjects.Nick as Person;
         return nick!;
     }
 
-    //[Benchmark]
+    [Benchmark]
     public Person MatchCast()
     {
         if (StaticObjects.Nick is Person person)

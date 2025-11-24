@@ -424,3 +424,32 @@ public class StructVsClassBenchmark
         return sum;
     }
 }
+
+/*
+ | Method                              | Mean         | Error      | StdDev      | Rank | Gen0   | Gen1   | Allocated |
+|------------------------------------ |-------------:|-----------:|------------:|-----:|-------:|-------:|----------:|
+| StackAllocatedReadOnlyRefStructs    |     2.329 ns |  0.0131 ns |   0.0116 ns |    1 |      - |      - |         - |
+| StackAllocatedRefStructs            |     4.833 ns |  0.1236 ns |   0.1269 ns |    2 |      - |      - |         - |
+| StructArray                         |    61.955 ns |  1.2380 ns |   1.3761 ns |    3 | 0.0337 |      - |     424 B |
+| HeapAllocatedClasses                |   104.425 ns |  1.3495 ns |   1.1963 ns |    4 | 0.0956 |      - |    1200 B |
+| PassReadOnlyRefStructByIn           |   197.902 ns |  2.9703 ns |   2.7784 ns |    5 |      - |      - |         - |
+| CompoundReadOnlyRefStructOperations |   199.683 ns |  0.7434 ns |   0.6953 ns |    5 |      - |      - |         - |
+| MutateStructByValue                 |   232.370 ns |  1.7409 ns |   1.6284 ns |    6 |      - |      - |         - |
+| PassStructByValue                   |   233.199 ns |  1.4667 ns |   1.3002 ns |    6 |      - |      - |         - |
+| PassRefStructByIn                   |   233.946 ns |  2.6196 ns |   2.4503 ns |    6 |      - |      - |         - |
+| MutateRefStruct                     |   234.868 ns |  0.7534 ns |   0.7047 ns |    6 |      - |      - |         - |
+| PassStructByIn                      |   237.077 ns |  3.4204 ns |   3.1995 ns |    6 |      - |      - |         - |
+| ClassArray                          |   264.218 ns |  3.8403 ns |   3.2069 ns |    7 | 0.2565 | 0.0029 |    3224 B |
+| CreateAndAccessRefStruct            |   354.916 ns |  6.0130 ns |   5.6246 ns |    8 |      - |      - |         - |
+| CreateAndAccessStruct               |   356.996 ns |  3.0997 ns |   2.8995 ns |    8 |      - |      - |         - |
+| CompoundRefStructOperations         |   372.366 ns |  0.9665 ns |   0.8568 ns |    9 |      - |      - |         - |
+| CompoundStructOperations            |   378.580 ns |  4.7302 ns |   4.1932 ns |    9 |      - |      - |         - |
+| CreateAndAccessReadOnlyRefStruct    |   504.039 ns |  1.9151 ns |   1.7914 ns |   10 |      - |      - |         - |
+| StructViaInterface                  | 1,464.093 ns | 28.6059 ns |  32.9426 ns |   11 | 1.9112 |      - |   24000 B |
+| ClassViaInterface                   | 1,481.597 ns | 29.4646 ns |  41.3053 ns |   11 | 1.9112 |      - |   24000 B |
+| PassClassByReference                | 1,484.040 ns | 28.1118 ns |  28.8688 ns |   11 | 1.9112 |      - |   24000 B |
+| PassClassByInReference              | 1,522.931 ns | 24.0471 ns |  22.4936 ns |   11 | 1.9112 |      - |   24000 B |
+| MutateClass                         | 1,532.124 ns | 22.9062 ns |  21.4264 ns |   11 | 1.9112 |      - |   24000 B |
+| CompoundClassOperations             | 1,672.890 ns | 25.3197 ns |  23.6840 ns |   12 | 1.9112 |      - |   24000 B |
+| CreateAndAccessClass                | 2,979.216 ns | 58.4528 ns | 118.0775 ns |   13 | 1.9112 |      - |   24000 B |
+ */

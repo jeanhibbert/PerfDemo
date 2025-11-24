@@ -50,7 +50,7 @@ public class InAndOutBenchmarks
         return s.X + s.Y;
     }
 
-    private double AddByReftype(in ImmutableStruct s)
+    private double AddByReftype(in ImmutableStruct s) //winner!
     {
         return s.X + s.Y;
     }
@@ -75,6 +75,21 @@ public class InAndOutBenchmarks
         return s.X + s.Y;
     }
 }
+
+
+/*
+ 
+| Method                      | Mean      | Error     | StdDev    | Median    | Allocated |
+|---------------------------- |----------:|----------:|----------:|----------:|----------:|
+| MutableAddByType            | 0.2444 ns | 0.0282 ns | 0.0264 ns | 0.2428 ns |         - |
+| MutableAddByRefType         | 0.4241 ns | 0.0339 ns | 0.0317 ns | 0.4333 ns |         - |
+| MutableReadOnlyAddByType    | 0.1651 ns | 0.0138 ns | 0.0123 ns | 0.1630 ns |         - |
+| MutableReadonlyAddByRefType | 0.2284 ns | 0.0320 ns | 0.0342 ns | 0.2201 ns |         - |
+| ImmutableAddByType          | 0.2084 ns | 0.0177 ns | 0.0165 ns | 0.2140 ns |         - |
+| ImmutableAddByRefType       | 0.0155 ns | 0.0174 ns | 0.0163 ns | 0.0103 ns |         - |
+ 
+ */
+
 
 public readonly struct ImmutableStruct
 {

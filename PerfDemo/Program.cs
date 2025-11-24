@@ -2,6 +2,7 @@
 using CastingObjects;
 using FastListIteration;
 using FrozenCollections;
+using InAndOutExamples;
 using PerfDemo;
 using PerfDemo._0_ResultPattern;
 using PerfDemo._8_Span;
@@ -39,13 +40,20 @@ using PerfDemo.ZLinqBenchmark;
 
 //BenchmarkRunner.Run<SpanSplitBenchmarks>(); // 8
 //BenchmarkRunner.Run<SubstringSpanBenchmarks>();
+
+ParseWithSpanExample.Run();
+
 //BenchmarkRunner.Run<CreateStringSpanBenchmarks>();
 
-//CsvParserBenchmarks.RunLightBenchmark(); // 9
+CsvParserBenchmarks.RunLightBenchmark(); // 9
+//CsvParserBenchmarks.RunParserForever(); // Use for demoing visual studio profiler only!!
+
 //BenchmarkRunner.Run<CsvParserBenchmarks>();
 
 //////////////////////////////////////////////
-BenchmarkRunner.Run<ParserBenchmarks>();
+//BenchmarkRunner.Run<ParserBenchmarks>();
 
 
 
+///////////////////////////////////////////// - if there is time
+//BenchmarkRunner.Run<InAndOutBenchmarks>();
