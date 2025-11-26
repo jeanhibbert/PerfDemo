@@ -1,41 +1,7 @@
 ﻿using BenchmarkDotNet.Attributes;
 using BenchmarkDotNet.Order;
+using PerfDemo._5_RefStruct;
 using System.Drawing;
-
-namespace PerfDemo;
-
-public interface ISomeInterface
-{
-    int GetValue();
-}
-
-public struct MyMutatableStruct : ISomeInterface
-{
-    public int X;
-    public int GetValue() => X;
-    public void Mutate() => X++;
-}
-
-public ref struct MyRefStruct //: IMyStruct
-{
-    public int X;
-    public int GetValue() => X;
-    public void Mutate() => X++;
-}
-
-public readonly ref struct MyReadOnlyStruct //: IMyStruct
-{
-    public readonly int X => 1;
-    public readonly int GetValue() => X;
-    //public void Mutate() => X++;
-}
-
-public class MyClass : ISomeInterface
-{
-    public int X;
-    public int GetValue() => X;
-    public void Mutate() => X++;
-}
 
 [SimpleJob]
 [MemoryDiagnoser]
@@ -84,7 +50,7 @@ public class StructVsClassBenchmark
         int sum = 0;
         for (int i = 0; i < Iterations; i++)
         {
-            var s = new MyReadOnlyStruct();
+            var s = new MyReadOnlyRefStruct();
             sum += s.GetValue();
         }
         return sum;
@@ -167,7 +133,7 @@ public class StructVsClassBenchmark
         int sum = 0;
         for (int i = 0; i < Iterations; i++)
         {
-            var s = new MyReadOnlyStruct();
+            var s = new MyReadOnlyRefStruct();
             sum += ProcessReadOnlyRefStructByIn(in s);
         }
         return sum;
@@ -187,7 +153,7 @@ public class StructVsClassBenchmark
 
     private int ProcessStructByIn(in MyMutatableStruct s) => s.GetValue();
     private int ProcessRefStructByIn(in MyRefStruct s) => s.GetValue();
-    private int ProcessReadOnlyRefStructByIn(in MyReadOnlyStruct s) => s.GetValue();
+    private int ProcessReadOnlyRefStructByIn(in MyReadOnlyRefStruct s) => s.GetValue();
     private int ProcessClassByIn(in MyClass c) => c.GetValue();
 
     // =============================================================================
@@ -341,7 +307,7 @@ public class StructVsClassBenchmark
         int sum = 0;
         for (int i = 0; i < Iterations; i++)
         {
-            var s = new MyReadOnlyStruct();
+            var s = new MyReadOnlyRefStruct();
             sum += ProcessReadOnlyRefStructByIn(in s);
             sum += s.GetValue();
         }
@@ -393,11 +359,11 @@ public class StructVsClassBenchmark
         for (int i = 0; i < 10; i++)
         {
             // Simulate stack-heavy operations with readonly
-            var s1 = new MyReadOnlyStruct();
-            var s2 = new MyReadOnlyStruct();
-            var s3 = new MyReadOnlyStruct();
-            var s4 = new MyReadOnlyStruct();
-            var s5 = new MyReadOnlyStruct();
+            var s1 = new MyReadOnlyRefStruct();
+            var s2 = new MyReadOnlyRefStruct();
+            var s3 = new MyReadOnlyRefStruct();
+            var s4 = new MyReadOnlyRefStruct();
+            var s5 = new MyReadOnlyRefStruct();
 
             sum += s1.GetValue() + s2.GetValue() + s3.GetValue() + 
                    s4.GetValue() + s5.GetValue();

@@ -59,6 +59,35 @@ public class CsvParser
 
     public static void ParseCsv2()
     {
+        var lines = File.ReadAllLines("salaries-2024.csv");
+        //var records = new List<SalaryRecord>();
+
+        for (int i = 1; i < lines.Length; i++)
+        {
+            string[] fields = lines[i].Split(',');
+
+            var record = new SalaryRecord(
+                WorkYear: int.Parse(fields[0]),
+                ExperienceLevel: fields[1],
+                EmploymentType: fields[2],
+                JobTitle: fields[3],
+                Salary: int.Parse(fields[4]),
+                SalaryCurrency: fields[5],
+                SalaryInUsd: int.Parse(fields[6]),
+                EmployeeResidence: fields[7],
+                RemoteRatio: int.Parse(fields[8]),
+                CompanyLocation: fields[9],
+                CompanySize: fields[10]
+            );
+
+
+        }
+
+        //SaveRecordsAsJson(records, "salaries_2024_1.json", writeIndented: true);
+    }
+
+    public static void ParseCsv3()
+    {
 
         IEnumerable<string> lines = File.ReadLines("salaries-2024.csv");
         
@@ -84,7 +113,7 @@ public class CsvParser
         //SaveRecordsAsJson(records, "salaries_2024_2.json", writeIndented: true);
     }
 
-    public static void ParseCsv3()
+    public static void ParseCsv4()
     {
         byte[] bytes = File.ReadAllBytes("salaries-2024.csv");
         ReadOnlySpan<byte> span = bytes;
@@ -105,7 +134,7 @@ public class CsvParser
         //SaveRecordsAsJson(records, "salaries_2024_3.json", writeIndented: true);
     }
 
-    internal static void ParseCsv4()
+    internal static void ParseCsv5()
     {
         using Stream stream = File.OpenRead("salaries-2024.csv");
         var length = (int)stream.Length;
@@ -206,6 +235,7 @@ public class CsvParser
         );
     }
 
+    
     private static void SaveRecordsAsJson(IEnumerable<SalaryRecord> records, string outputPath, bool writeIndented = true)
     {
         var options = new JsonSerializerOptions { WriteIndented = writeIndented };

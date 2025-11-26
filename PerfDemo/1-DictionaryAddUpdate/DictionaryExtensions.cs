@@ -21,7 +21,7 @@ public static class DictionaryExtensions
         (this Dictionary<TKey, TValue> dict, TKey key, TValue? value)
         where TKey : notnull
     {
-        ref var val = ref CollectionsMarshal.GetValueRefOrAddDefault(dict, key, out bool exists);
+        ref var val = ref CollectionsMarshal.GetValueRefOrAddDefault(dict, key, out bool exists); // Show IL Spy
 
         if (exists)
             return val;
